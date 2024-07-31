@@ -19,4 +19,16 @@ public class TopicService {
     public void createTopic(UUID id, UUID userId, String title, String content) {
         this.topicRepository.save(new Topic(id, userId, title, content));
     }
+
+    public void updateTopic(UUID id, String title, String content) {
+        Topic topic = this.topicRepository.findById(id);
+        topic.setTitle(title);
+        topic.setContent(content);
+        this.topicRepository.update(topic);
+    }
+
+    public void deleteTopic(UUID id) {
+        Topic topic = this.topicRepository.findById(id);
+        this.topicRepository.delete(topic);
+    }
 }
