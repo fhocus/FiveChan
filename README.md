@@ -35,10 +35,10 @@ El modelo de dominio del proyecto incluye las siguientes entidades principales:
 - Comentario: Respuesta o aportación de un usuario a un tema existente.
 
 ## Arquitectura y Patrones
-![Diagrama de_Casos_de_Uso](Imagenes/Casos de uso.jpg)
+![Diagrama de_Casos_de_Uso](Imagenes/Casos_de_uso.jpg)
 
 ## Modelo de Dominio:
-![Modelo_Dominio](Imagenes/Modelo de dominio.jpg)
+![Modelo_Dominio](Imagenes/Modelo_de_dominio.jpg)
 
 ## Arquitectura y Patrones:
 ![Arquitectura](Imagenes/Arquitectura.jpg)
