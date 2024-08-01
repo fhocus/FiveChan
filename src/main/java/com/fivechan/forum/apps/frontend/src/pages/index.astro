@@ -1,0 +1,28 @@
+---
+import Navbar from "../components/Navbar.astro";
+import CreateTopic from "../components/CreateTopic.astro";
+import ListPost from "../components/ListPost.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es" data-theme="bumblebee">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>FiveChan</title>
+    </head>
+    <body class="bg-base-200 min-h-screen">
+        <Navbar />
+
+        <div class="w-full px-4 md:px-8 py-8">
+            <div class="w-[1000px] mx-auto flex flex-col gap-8">
+                <CreateTopic />
+                <ListPost />
+            </div>
+        </div>
+
+        <Footer />
+    </body>
+</html>

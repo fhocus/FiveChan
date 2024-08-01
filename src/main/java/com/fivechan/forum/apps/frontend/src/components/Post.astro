@@ -1,0 +1,32 @@
+---
+interface Props {
+    title?: string;
+    username?: string;
+    content?: string;
+    url?: string;
+}
+
+const {
+    url = "/post/a8c61d9f-293a-4f5d-bd65-306df69b1c9f",
+    username = "fivechan",
+    title = "Cómo Optimizar tu Sitio Web para el SEO en 2024",
+    content = "En el competitivo mundo digital de 2024, optimizar tu sitio web para los motores de búsqueda (SEO) es más crucial que nunca. Con algoritmos en constante evolución y nuevas tendencias emergentes, es fundamental mantenerse actualizado y adaptar tus estrategias para mejorar tu visibilidad online. En este artículo, exploraremos las técnicas más efectivas y las mejores prácticas para asegurarte de que tu sitio web se destaque entre la multitud y atraiga tráfico de calidad.",
+} = Astro.props;
+---
+
+<div class="bg-base-100 w-full rounded-xl flex flex-col py-8 px-8">
+    <header class="mb-4">
+        <h1 class="text-lg font-bold">
+            <a class="link link-hover" href={url}>{title}</a>
+        </h1>
+        <p class="line-clamp-3">{content}</p>
+    </header>
+    <div class="flex gap-3 items-center">
+        <img
+            class="w-8 rounded-full"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            alt=""
+        />
+        <p>{username}</p>
+    </div>
+</div>

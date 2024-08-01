@@ -1,28 +1,16 @@
 package com.fivechan.forum.context.user.domain;
 
-import java.util.UUID;
-
-public class User {
-    private UUID id;
+public class UserDTO {
     private String name;
     private String description;
     private String avatar;
     private String email;
 
-    public User(UUID id, String name, String description, String avatar, String email) {
-        this.id = id;
+    public UserDTO(String name, String description, String avatar, String email) {
         this.name = name;
         this.description = description;
         this.avatar = avatar;
         this.email = email;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -49,11 +37,11 @@ public class User {
         this.avatar = avatar;
     }
 
-    public  void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

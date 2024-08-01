@@ -1,11 +1,11 @@
 package com.fivechan.forum.context.user.domain;
 
-public class UserAuth {
+public class UserAuthDTO {
     private String username;
     private String password;
     private String email;
 
-    public UserAuth(String username, String password, String email) {
+    public UserAuthDTO(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
