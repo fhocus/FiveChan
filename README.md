@@ -444,3 +444,84 @@ infraestructura (acceso a datos, servicios externos). Esta arquitectura ayuda a 
 preocupaciones y facilita el mantenimiento y la escalabilidad del sistema.
 
 ![Capas](Imagenes/Capas.jpg)
+
+#### Estilos de programación
+
+##### 1. Restful
+
+```Java
+@RestController
+@RequestMapping("/topic")
+public class TopicController {
+    private final TopicService topicService;
+
+    @Autowired
+    public TopicController(TopicService topicService) {
+        // ...
+    }
+
+    @PostMapping
+    public  void createTopic(@RequestBody TopicDTO topic) {
+        // ...
+    }
+}
+```
+
+##### 2. Cookbook
+
+Este estilo implica tener recetas específicas para realizar tareas comunes. Los métodos en `JpaUserRepository` siguen un patrón repetitivo y bien definido para las operaciones CRUD.
+
+**Ejemplo:**
+
+```java
+@Override
+@Transactional
+public void save(User user) {
+    UserEntity userEntity = UserEntity.fromDomain(user);
+    entityManager.persist(userEntity);
+}
+
+@Override
+public User findById(UUID id) {
+    UserEntity userEntity = entityManager.find(UserEntity.class, id);
+    return userEntity != null ? userEntity.toDomain() : null;
+}
+```
+
+##### 3. Pipeline
+Este estilo se refiere a procesar datos a través de una serie de pasos o etapas. En la conversión entre User y UserEntity.
+```java
+
+public User toDomain() {
+    return new User(id, name, description, avatar, email);
+}
+
+public static UserEntity fromDomain(User user) {
+    return new UserEntity(user.getId(), user.getName(), user.getDescription(), user.getAvatar(), user.getEmail());
+}
+```
+
+#### 4. Persistent-Tables
+
+```java
+@Entity
+public class TopicEntity {
+    @Id
+    private UUID id;
+    private UUID userId;
+    private String title;
+    private String content;
+
+    // ...
+}
+```
+
+```java
+@Repository
+public class JpaTopicRepository implements TopicRepository {
+    @PersistenceContext
+    protected EntityManager entityManager;
+
+    // ...
+}
+```
