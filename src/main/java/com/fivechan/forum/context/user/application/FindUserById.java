@@ -5,15 +5,14 @@ import com.fivechan.forum.context.user.domain.UserRepository;
 
 import java.util.UUID;
 
-public class CreateUser {
+public class FindUserById {
     private final UserRepository userRepository;
 
-    public CreateUser(UserRepository userRepository) {
+    public FindUserById(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public void execute(UUID id, String name, String description, String avatar) {
-        User user = new User(id, name, description, avatar);
-        this.userRepository.save(user);
+    public User execute(UUID id) {
+        return userRepository.findById(id);
     }
 }
