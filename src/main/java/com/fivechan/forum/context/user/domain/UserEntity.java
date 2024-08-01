@@ -2,10 +2,13 @@ package com.fivechan.forum.context.user.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 import java.util.UUID;
 
 @Entity
+@Table(name = "user_entity", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class UserEntity {
     @Id
     private UUID id;
