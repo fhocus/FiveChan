@@ -2,32 +2,15 @@ package com.fivechan.forum.context.comment.domain;
 
 import java.util.UUID;
 
-public class Comment {
-    private UUID id;
+public class CommentDTO {
     private UUID userId;
     private UUID topicId;
     private String content;
 
-    public Comment(UUID id, UUID userId, UUID topicId, String content) {
-        this.id = id;
+    public CommentDTO(UUID userId, UUID topicId, String content) {
         this.userId = userId;
         this.topicId = topicId;
         this.content = content;
-    }
-
-    public Comment(UUID userId, UUID topicId, String content) {
-        this.id = UUID.randomUUID();
-        this.userId = userId;
-        this.topicId = topicId;
-        this.content = content;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public UUID getUserId() {
